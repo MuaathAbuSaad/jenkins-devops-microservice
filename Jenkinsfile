@@ -25,7 +25,6 @@ pipeline {
 				echo 'PATH $PATH'
 				sh 'mvn --version'
 				sh 'docker version'
-				sh 'PATH $PATH'
 				echo "Building Steps"
 			}
 		}
