@@ -8,13 +8,22 @@
 //Declarative pipeline
 
 pipeline {
-	agent {
-        docker { image 'maven:3.6.3' }
-    }
+	agent any
+	// agent {
+    //     docker { image 'maven:3.6.3' }
+    // }
+
+	environment {
+		dockerHome = tool 'dockerLocal'
+		mavenHome = tool 'mavenLocal'
+		PATH = '$dockerHome/bin:$mavenHome/bin:$PATH'
+	}
 	stages {
 		stage('Build'){
 			steps {
 				sh 'mvn --version'
+				sh 'docker version'
+				sh 'PATH $PATH'
 				echo "Building Steps"
 			}
 		}
