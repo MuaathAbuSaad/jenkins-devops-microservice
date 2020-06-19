@@ -21,6 +21,8 @@ pipeline {
 	stages {
 		stage('Build'){
 			steps {
+
+				sh 'PATH $PATH'
 				sh 'mvn --version'
 				sh 'docker version'
 				sh 'PATH $PATH'
